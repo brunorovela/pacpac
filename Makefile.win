@@ -1,0 +1,45 @@
+# Project: PacPac
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = PacPac_private.res
+OBJ  = main.o CParede.o CQueijo.o CInimigo.o CJogador.o $(RES)
+LINKOBJ  = main.o CParede.o CQueijo.o CInimigo.o CJogador.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lalleg  -lgmon -pg  -g3 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = PacPac.exe
+CXXFLAGS = $(CXXINCS) -lalleg   -fexceptions -pg -g3
+CFLAGS = $(INCS) -lalleg   -fexceptions -pg -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before PacPac.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "PacPac.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+CParede.o: CParede.cpp
+	$(CPP) -c CParede.cpp -o CParede.o $(CXXFLAGS)
+
+CQueijo.o: CQueijo.cpp
+	$(CPP) -c CQueijo.cpp -o CQueijo.o $(CXXFLAGS)
+
+CInimigo.o: CInimigo.cpp
+	$(CPP) -c CInimigo.cpp -o CInimigo.o $(CXXFLAGS)
+
+CJogador.o: CJogador.cpp
+	$(CPP) -c CJogador.cpp -o CJogador.o $(CXXFLAGS)
+
+PacPac_private.res: PacPac_private.rc 
+	$(WINDRES) -i PacPac_private.rc --input-format=rc -o PacPac_private.res -O coff 
