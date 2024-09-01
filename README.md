@@ -19,6 +19,9 @@ Inspirado no jogo Pacman.
 
 ![Fase 4](https://github.com/user-attachments/assets/546e7762-0652-417d-9c76-3e93bbd44ea1)
 
+## Fase 5
+
+![Fase 5](https://github.com/user-attachments/assets/6562fa92-fd20-41b9-8630-7c1c220846d4)
 
 ## Fim de Jogo
 
